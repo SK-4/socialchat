@@ -8,14 +8,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration Key
+# firebaseConfig = {
+#   "apiKey": os.environ.get("FIREBASE_API_KEY"),
+#   "authDomain": os.environ.get("FIREBASE_AUTH_DOMAIN"),
+#   "projectId": os.environ.get("FIREBASE_PROJECT_ID"),
+#   "databaseURL": os.environ.get("FIREBASE_DATABASE_URL"),
+#   "storageBucket": os.environ.get("FIREBASE_STORAGE_BUCKET"),
+#   "messagingSenderId": os.environ.get("FIREBASE_MESSAGING_SENDER_ID"),
+#   "appId": os.environ.get("FIREBASE_APP")
+# }
+
 firebaseConfig = {
-  "apiKey": os.environ.get("FIREBASE_API_KEY"),
-  "authDomain": os.environ.get("FIREBASE_AUTH_DOMAIN"),
-  "projectId": os.environ.get("FIREBASE_PROJECT_ID"),
-  "databaseURL": os.environ.get("FIREBASE_DATABASE_URL"),
-  "storageBucket": os.environ.get("FIREBASE_STORAGE_BUCKET"),
-  "messagingSenderId": os.environ.get("FIREBASE_MESSAGING_SENDER_ID"),
-  "appId": os.environ.get("FIREBASE_APP")
+  "apiKey": st.secrets['FIREBASE_API_KEY'],
+  "authDomain": st.secrets['FIREBASE_AUTH_DOMAIN'],
+  "projectId": st.secrets['FIREBASE_PROJECT_ID'],
+  "databaseURL": st.secrets['FIREBASE_DATABASE_URL'],
+  "storageBucket": st.secrets['FIREBASE_STORAGE_BUCKET'],
+  "messagingSenderId": st.secrets['FIREBASE_MESSAGING_SENDER_ID'],
+  "appId": st.secrets['FIREBASE_APP']
 }
 
 # Firebase Authentication
