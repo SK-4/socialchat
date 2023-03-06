@@ -38,7 +38,7 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 
 img = Image.open('icon.png')
-
+coffee_img = Image.open('buy_me_a_coffee.png')
 
 # Database
 db = firebase.database()
@@ -193,8 +193,7 @@ if choice == 'Login':
                                 st.code(Posts.val(),language = '')
 
         else:
-            st.text("")
             st.markdown(
-                f'<a href={STRIPE_CHECKOUT} class="button">👉 Get me a coffee ☕</a>',
+                f'<a href={STRIPE_CHECKOUT}><img src="https://i.ibb.co/Bnvg546/buy-me-a-coffee.png" alt="buy-me-a-coffee" border="0"></a>',
                 unsafe_allow_html=True)
-    
+            st.text('Have a Great Day 🥂')
