@@ -35,6 +35,8 @@ auth = firebase.auth()
 # Database
 db = firebase.database()
 storage = firebase.storage()
+st.set_page_config(page_title="Anonymous", page_icon=":💬:", layout="centered", initial_sidebar_state="auto", menu_items=None)
+
 st.sidebar.title("Our community app")
 
 # Authentication
