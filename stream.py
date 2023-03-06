@@ -2,6 +2,7 @@
 import pyrebase
 import streamlit as st
 from datetime import datetime
+from PIL import Image
 # import os
 # from dotenv import load_dotenv
 
@@ -32,12 +33,17 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 
+img = Image.open('icon.png')
+
+
 # Database
 db = firebase.database()
 storage = firebase.storage()
 st.set_page_config(page_title="Anonymous", page_icon=":💬:", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
+st.sidebar.image(image=img)
 st.sidebar.title("Our community app")
+
 
 # Authentication
 choice = st.sidebar.selectbox('login/Signup', ['Login', 'Sign up'])
