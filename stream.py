@@ -29,6 +29,10 @@ firebaseConfig = {
   "appId": st.secrets["FIREBASE_APP_ID"]
 }
 
+#stripe checkout
+STRIPE_CHECKOUT = "https://buy.stripe.com/test_8wMdUt8V21rl82AeUU"
+
+
 # Firebase Authentication
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
@@ -76,7 +80,7 @@ if choice == 'Login':
     if login:
         user = auth.sign_in_with_email_and_password(email,password)
         st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-        bio = st.radio('Jump to',['Home','Workplace Feeds', 'Settings'])
+        bio = st.radio('Jump to',['Home','Workplace Feeds', 'Settings','Buy Me a Coffee ☕'])
         
 # SETTINGS PAGE 
         if bio == 'Settings':  
@@ -146,7 +150,7 @@ if choice == 'Login':
                     for Posts in reversed(all_posts.each()):
                         st.code(Posts.val(),language = 'python')
    # WORKPLACE FEED PAGE
-        else:
+        elif bio == 'Workplace Feeds':
             all_users = db.get()
             res = []
             # Store all the users handle name
@@ -187,3 +191,10 @@ if choice == 'Login':
                         if all_posts.val() is not None:    
                             for Posts in reversed(all_posts.each()):
                                 st.code(Posts.val(),language = '')
+
+        else:
+            st.text("")
+            st.markdown(
+                f'<a href={STRIPE_CHECKOUT} class="button">👉 Get me a coffee ☕</a>',
+                unsafe_allow_html=True)
+    
