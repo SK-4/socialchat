@@ -2,10 +2,10 @@
 import pyrebase
 import streamlit as st
 from datetime import datetime
-import os
-from dotenv import load_dotenv
+# import os
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 # Configuration Key
 # firebaseConfig = {
